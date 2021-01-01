@@ -1,0 +1,125 @@
+$gC: #d2b859;
+$b: #fff;
+$wMenu:38px;
+$hLine:3px;
+$sepLine:7px;
+$numLines:3;
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #343434;
+
+}
+
+header{
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
+    height:100px;
+    padding: 30px 10%;
+
+
+    .logo{
+        width: 80px;
+        cursor: pointer;
+
+    }
+    .social{
+        background-color: rgba(0, 136, 255, 0.172);
+        width:200px;
+        height:100%;
+    }
+    .nav__links{
+        list-style:none;
+        li{
+            display: inline-block;
+        }
+
+    }
+
+    .burger-menu{
+		position: absolute;
+		z-index: 99999;
+		top: 5px;
+		right: 5px;
+		display: block;
+		$paddingBurger: 20px;
+		width: $wMenu + ( $paddingBurger * 2);
+		height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
+		cursor: pointer;
+		//background-color rgba(255,0,0,0.2)
+
+        .container{
+			position: absolute;
+			top: $paddingBurger;
+			left:$paddingBurger;
+			width: $wMenu;
+			height: 23px;
+			overflow: visible;
+
+            .line{
+                position: absolute;
+                width: $wMenu;
+                background-color: $gC;
+				left: 0;
+				display: block;
+                height: $hLine;
+            }
+            #line0{
+                top: ($hLine + $sepLine) * 1;
+            }
+            
+            #line1{
+                top: ($hLine + $sepLine) * 2;
+            }
+
+            #line2{
+                top: ($hLine + $sepLine) * 3;
+            }
+
+
+            .txt-container{
+                position: absolute;
+				width: $wMenu;
+				left: 0;
+				top: 30px;
+				height:0px;
+                overflow: hidden;
+                // background-color: #fff;
+
+
+                span{
+                    position: absolute;
+					top: 3px;
+					left: 0;
+					width: 100%;
+					height: auto;
+					font-family :sans-serif;
+					font-size: 11.5px;
+                    color: $gC;
+
+                }
+            }
+
+        
+
+        }
+    }
+
+}
+
+
+
+
