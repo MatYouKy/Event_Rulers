@@ -24,7 +24,7 @@ body{
 header{
     position:relative;
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width:100vw;
     height:100px;
@@ -33,25 +33,31 @@ header{
 
     .logo{
         width: 80px;
+        margin-right: auto;
         cursor: pointer;
 
     }
     .social{
         background-color: rgba(0, 136, 255, 0.172);
+        margin-right: 20px;
         width:200px;
         height:100%;
     }
     .nav__links{
         list-style:none;
+        margin-left: 20px;
         li{
             display: inline-block;
         }
 
     }
 
+
+
+
+// BURGER MENU
     .burger-menu{
 		position: absolute;
-		z-index: 99999;
 		top: 5px;
 		right: 5px;
 		display: block;
@@ -59,8 +65,6 @@ header{
 		width: $wMenu + ( $paddingBurger * 2);
 		height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
 		cursor: pointer;
-        //background-color rgba(255,0,0,0.2)
-        
         .container{
 			position: absolute;
 			top: $paddingBurger;
@@ -110,9 +114,18 @@ header{
 					font-family :sans-serif;
 					font-size: 11.5px;
                     color: $gC;
-                    transition: top .3s;
-
+                    transition: top .5s;
                 }
+            }
+            .showMenu0{
+                transform: rotate(45deg) translateX(9px) translateY(7px);
+                translate: (-50%, -50%);
+                transition: .3s;
+            }
+            .showMenu2{
+                transform: rotate(-45deg) translateX(7px) translateY(-6px);
+                translate: (-50%, -50%);
+                transition: .3s;
             }
         }
     }
@@ -121,9 +134,15 @@ header{
     }
     .burger-menu:hover  .txt-container > span{
         top: 3px;
-
     }
+
+
+
+
+
+
 }
+@media (width-min)
 
 
 
