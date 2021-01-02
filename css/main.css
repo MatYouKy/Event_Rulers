@@ -143,17 +143,15 @@ header .burger-menu:hover .txt-container > span {
 
 @media (min-width: 1200px) {
   header header {
-    padding: 30px 20px;
-    z-index: 10;
+    padding: 30px 00px;
   }
-  header .social {
+  header header .social {
     margin-right: 0;
   }
-  header .burger-menu {
+  header header .burger-menu {
     display: none;
-    z-index: -10;
   }
-  header .nav__links li {
+  header header .nav__links li {
     display: inline-block;
   }
 }

@@ -151,17 +151,15 @@ header{
 
     @media (min-width: 1200px){
         header{
-            padding: 30px 20px;
-            z-index: 10;
+            padding: 30px 00px;
 
-        }
+        
         .social{
             margin-right: 0;
         }
 
         .burger-menu{
             display:none;
-            z-index: -10;
         }
         .nav__links{
             li{
@@ -169,7 +167,10 @@ header{
             }
         
         }
+
+      }   
     }
+    
 }
 
 
