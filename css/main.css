@@ -21,7 +21,7 @@ header {
   align-items: center;
   width: 100vw;
   height: 100px;
-  padding: 30px 10%;
+  padding: 30px 20px;
 }
 
 header .logo {
@@ -31,19 +31,27 @@ header .logo {
 }
 
 header .social {
-  background-color: rgba(0, 136, 255, 0.172);
-  margin-right: 20px;
+  background-color: white;
+  margin-right: 63px;
   width: 200px;
   height: 100%;
 }
 
 header .nav__links {
   list-style: none;
-  margin-left: 20px;
+  text-decoration: none;
+  margin: 0 20px;
 }
 
 header .nav__links li {
-  display: inline-block;
+  display: none;
+  text-transform: uppercase;
+}
+
+header .nav__links li a {
+  text-decoration: none;
+  color: white;
+  padding: 0 5px;
 }
 
 header .burger-menu {
@@ -133,5 +141,20 @@ header .burger-menu:hover .txt-container > span {
   top: 3px;
 }
 
-@me;
+@media (min-width: 1200px) {
+  header header {
+    padding: 30px 20px;
+    z-index: 10;
+  }
+  header .social {
+    margin-right: 0;
+  }
+  header .burger-menu {
+    display: none;
+    z-index: -10;
+  }
+  header .nav__links li {
+    display: inline-block;
+  }
+}
 /*# sourceMappingURL=main.css.map */

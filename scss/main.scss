@@ -28,7 +28,7 @@ header{
     align-items: center;
     width:100vw;
     height:100px;
-    padding: 30px 10%;
+    padding: 30px 20px;
 
 
     .logo{
@@ -38,16 +38,25 @@ header{
 
     }
     .social{
-        background-color: rgba(0, 136, 255, 0.172);
-        margin-right: 20px;
+        background-color: rgb(255, 255, 255);
+        margin-right: 63px;
         width:200px;
         height:100%;
     }
     .nav__links{
         list-style:none;
-        margin-left: 20px;
+        text-decoration: none;
+        margin:0 20px;
+        
         li{
-            display: inline-block;
+            display: none;
+            text-transform: uppercase;
+            a{
+                text-decoration: none;
+                color: white;
+                padding:0 5px;
+            }
+
         }
 
     }
@@ -140,9 +149,28 @@ header{
 
 
 
+    @media (min-width: 1200px){
+        header{
+            padding: 30px 20px;
+            z-index: 10;
 
+        }
+        .social{
+            margin-right: 0;
+        }
+
+        .burger-menu{
+            display:none;
+            z-index: -10;
+        }
+        .nav__links{
+            li{
+                display: inline-block;
+            }
+        
+        }
+    }
 }
-@media (width-min)
 
 
 
