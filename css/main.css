@@ -141,18 +141,9 @@ header .burger-menu:hover .txt-container > span {
   top: 3px;
 }
 
-@media (min-width: 1200px) {
-  header header {
-    padding: 30px 00px;
-  }
-  header header .social {
-    margin-right: 0;
-  }
-  header header .burger-menu {
+@media (min-width: 1000px) {
+  header .social {
     display: none;
-  }
-  header header .nav__links li {
-    display: inline-block;
   }
 }
 /*# sourceMappingURL=main.css.map */

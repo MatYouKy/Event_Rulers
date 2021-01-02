@@ -18,8 +18,8 @@ body{
     position: relative;
     font-family: 'Montserrat', sans-serif;
     background-color: #343434;
-
 }
+
 
 header{
     position:relative;
@@ -30,12 +30,14 @@ header{
     height:100px;
     padding: 30px 20px;
 
-
+    
+    
+    
     .logo{
         width: 80px;
         margin-right: auto;
         cursor: pointer;
-
+        
     }
     .social{
         background-color: rgb(255, 255, 255);
@@ -56,17 +58,17 @@ header{
                 color: white;
                 padding:0 5px;
             }
-
+            
         }
-
+        
     }
-
-
-
-
-// BURGER MENU
+    
+    
+    
+    
+    // BURGER MENU
     .burger-menu{
-		position: absolute;
+        position: absolute;
 		top: 5px;
 		right: 5px;
 		display: block;
@@ -75,7 +77,7 @@ header{
 		height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
 		cursor: pointer;
         .container{
-			position: absolute;
+            position: absolute;
 			top: $paddingBurger;
 			left:$paddingBurger;
 			width: $wMenu;
@@ -97,7 +99,7 @@ header{
                 top: ($hLine + $sepLine) * 2;
                 transition: top .3s ;
             }
-
+            
             #line2{
                 top: ($hLine + $sepLine) * 3;
             }
@@ -138,40 +140,25 @@ header{
             }
         }
     }
+    
     .burger-menu:hover  #line1{
         top: ($hLine + $sepLine) * 3;
     }
     .burger-menu:hover  .txt-container > span{
         top: 3px;
     }
-
-
-
-
-
-    @media (min-width: 1200px){
-        header{
-            padding: 30px 00px;
-
-        
+    
+    
+    @media (min-width: 1000px){
         .social{
-            margin-right: 0;
-        }
-
-        .burger-menu{
             display:none;
         }
-        .nav__links{
-            li{
-                display: inline-block;
-            }
-        
-        }
-
-      }   
+    
     }
     
 }
+
+
 
 
 
