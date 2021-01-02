@@ -9,95 +9,118 @@ html {
 }
 
 body {
-  position: relative;
   font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
   background-color: #343434;
 }
 
-header {
-  position: relative;
+body nav {
+  position: sticky;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
   height: 100px;
   padding: 30px 20px;
+  z-index: 1;
 }
 
-header .logo {
-  width: 80px;
+body nav .logo {
+  width: 45px;
   margin-right: auto;
   cursor: pointer;
 }
 
-header .social {
-  background-color: white;
+body nav .social {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin-right: 63px;
-  width: 200px;
+  display: none;
+  width: 150px;
   height: 100%;
 }
 
-header .nav__links {
+body nav .social .soc {
+  color: white;
+  text-decoration: none;
+  font-size: .7rem;
+  transition: color .3s;
+}
+
+body nav .social .soc:hover {
+  color: #d2b859;
+}
+
+body nav .nav__links {
   list-style: none;
   text-decoration: none;
   margin: 0 20px;
 }
 
-header .nav__links li {
+body nav .nav__links li {
   display: none;
   text-transform: uppercase;
 }
 
-header .nav__links li a {
+body nav .nav__links li a {
   text-decoration: none;
+  font-size: .7rem;
   color: white;
   padding: 0 5px;
+  transition: color .3s;
 }
 
-header .burger-menu {
+body nav .nav__links li a:hover {
+  color: #d2b859;
+  text-shadow: 0px 0px 1px black;
+}
+
+body nav .burger-menu {
   position: absolute;
-  top: 5px;
+  top: 9px;
   right: 5px;
   display: block;
-  width: 78px;
+  width: 70px;
   height: 65px;
   cursor: pointer;
+  transition: display .3s;
 }
 
-header .burger-menu .container {
+body nav .burger-menu .container {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 38px;
+  width: 30px;
   height: 23px;
   overflow: visible;
 }
 
-header .burger-menu .container .line {
+body nav .burger-menu .container .line {
   position: absolute;
-  width: 38px;
+  width: 30px;
   background-color: #d2b859;
   left: 0;
   display: block;
   height: 3px;
 }
 
-header .burger-menu .container #line0 {
+body nav .burger-menu .container #line0 {
   top: 10px;
 }
 
-header .burger-menu .container #line1 {
+body nav .burger-menu .container #line1 {
   top: 20px;
   transition: top .3s;
 }
 
-header .burger-menu .container #line2 {
+body nav .burger-menu .container #line2 {
   top: 30px;
 }
 
-header .burger-menu .container .txt-container {
+body nav .burger-menu .container .txt-container {
   position: absolute;
-  width: 38px;
+  width: 30px;
   left: 0;
   top: 12px;
   height: 0px;
@@ -109,40 +132,77 @@ header .burger-menu .container .txt-container {
   top: 12px;
 }
 
-header .burger-menu .container .txt-container span {
+body nav .burger-menu .container .txt-container span {
   position: absolute;
   top: 30px;
   left: 0;
   width: 100%;
   height: auto;
   font-family: sans-serif;
-  font-size: 11.5px;
+  text-align: center;
+  font-size: 9px;
   color: #d2b859;
   transition: top .5s;
 }
 
-header .burger-menu .container .showMenu0 {
+body nav .burger-menu .container .showMenu0 {
   transform: rotate(45deg) translateX(9px) translateY(7px);
   translate: -50%, -50%;
   transition: .3s;
 }
 
-header .burger-menu .container .showMenu2 {
+body nav .burger-menu .container .showMenu2 {
   transform: rotate(-45deg) translateX(7px) translateY(-6px);
   translate: -50%, -50%;
   transition: .3s;
 }
 
-header .burger-menu:hover #line1 {
+body nav .burger-menu:hover #line1 {
   top: 30px;
 }
 
-header .burger-menu:hover .txt-container > span {
-  top: 3px;
+body nav .burger-menu:hover .txt-container > span {
+  top: 4.5px;
 }
 
-@media (min-width: 1000px) {
-  header .social {
+body header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: fff;
+  height: 100vh;
+}
+
+body header h1 {
+  text-transform: uppercase;
+}
+
+body header .hero-img {
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/19/12/11/dark-1838959_960_720.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+@media (min-width: 600px) {
+  body nav .social {
+    display: flex;
+  }
+  body nav .logo {
+    width: 55px;
+  }
+}
+
+@media (min-width: 1100px) {
+  body nav .logo {
+    width: 60px;
+  }
+  body nav .nav__links li {
+    display: inline-block;
+  }
+  body nav .social {
+    margin-right: 0;
+  }
+  body nav .burger-menu {
     display: none;
   }
 }
