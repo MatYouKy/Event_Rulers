@@ -59,7 +59,8 @@ header{
 		width: $wMenu + ( $paddingBurger * 2);
 		height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
 		cursor: pointer;
-		//background-color rgba(255,0,0,0.2)
+        //background-color rgba(255,0,0,0.2)
+        
 
         .container{
 			position: absolute;
@@ -83,6 +84,7 @@ header{
             
             #line1{
                 top: ($hLine + $sepLine) * 2;
+                transition: top .3s;
             }
 
             #line2{
@@ -97,9 +99,8 @@ header{
 				top: 30px;
 				height:0px;
                 overflow: hidden;
-                // background-color: #fff;
-
-
+                background-color: #fff;
+                transition: top .3s;
                 span{
                     position: absolute;
 					top: 3px;
@@ -109,15 +110,27 @@ header{
 					font-family :sans-serif;
 					font-size: 11.5px;
                     color: $gC;
+                    z-index: 5;
 
                 }
             }
-
-        
-
         }
     }
+    .burger-menu:hover  #line1{
+        top: ($hLine + $sepLine) * 3;
+    }
+    
+    .burger-menu:hover  .txt-container{
+        top: 12px;
 
+
+    }
+    .burger-menu:hover  span{
+        color:white;
+
+
+
+    }
 }
 
 
