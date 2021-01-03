@@ -10,7 +10,7 @@ const list = [...document.querySelectorAll("nav ul li a")];
 
 
 window.addEventListener("scroll", ()=>{
-
+    let windo = window.pageYOffset;
     if(windo > 10){
         nav.classList.add('bar');
         nav.style.transition = ".3s";
