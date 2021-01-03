@@ -11,6 +11,9 @@ const list = [...document.querySelectorAll("nav ul li a")];
 
 window.addEventListener("scroll", ()=>{
     let windo = window.pageYOffset;
+    console.log(aboutus.offset);
+    console.log(aboutus.offsetTop);
+
     if(windo > 10){
         nav.classList.add('bar');
         nav.style.transition = ".3s";
@@ -65,7 +68,7 @@ window.addEventListener("scroll", ()=>{
         list[4].classList.add("ac");
         list[5].classList.remove("ac");
     }
-    else if(contact.offsetTop < windo){
+    else if((contact.offsetTop +0) < windo){
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");

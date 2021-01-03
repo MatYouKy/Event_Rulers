@@ -42,14 +42,15 @@ header{
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
+        .hero-shadow{
+        
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+        }
     }
-    .hero-shdow{
 
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0);
-    }
     
 }
 
@@ -236,14 +237,52 @@ header{
         top:100vh;
         height: 100vh;
         width: 100%;
+
+        
+        
+    }
+    
+    .about{
+        background-image: url("https://cdn.pixabay.com/photo/2017/08/01/22/32/people-2568353_960_720.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+        
+    }
+    .artist{
+        background-image: url("https://cdn.pixabay.com/photo/2017/01/09/06/01/dj-1964730_960_720.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+        
+    }
+    .service{
+        background-image: url("https://cdn.pixabay.com/photo/2017/04/11/22/56/stage-2223130_960_720.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+        
+    }
+    .atraction{
+        background-image: url("https://cdn.pixabay.com/photo/2015/09/02/13/04/marriage-918864_960_720.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+        
+    }
+    .extras{
         background-image: url("../img/audio-1839380_1280.jpg");
         background-position: center;
         background-size:cover;
-
+        background-attachment: fixed;
         
     }
-    #artist:target  nav .nav__links li a{
-        color: black;
+    .contact{
+        background-image: url("../img/audio-1839380_1280.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+        
     }
     
     
