@@ -9,6 +9,7 @@ $numLines:3;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 html{
     scroll-behavior: smooth;
@@ -20,192 +21,249 @@ body{
     font-size: 10px;
     background-color:#343434;
 
-        nav{
-            position:sticky;
+}    
+header{
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    h1{
+        display: none;
+        text-transform: uppercase;
+    }
+    p{
+        display:none;
+        text-transform: uppercase;
+    }
+        
+    .hero-img{
+        position: relative;
+        height: 100vh; 
+        background-image: url("/img/img1.jpg");
+        background-position: center;
+        background-size:cover;
+        background-attachment: fixed;
+    }
+    .hero-shdow{
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0);
+    }
+    
+}
+
+    nav{
+        position: fixed;;
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+        width:100vw;
+        height:100px;
+        padding: 30px 20px;
+        z-index: 1;
+
+
+    
+        a{
+            margin-right: auto;
+            cursor: pointer;
+            .logo{
+                width: 45px;
+                
+            }
+        }
+        .social{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-right: 63px;
+            display:none;
+            width:150px;
+            height:100%;
+            .soc{
+                color: white;
+                text-decoration: none;
+                font-size: .8rem;
+                transition: color .3s;
+            }
+            .soc:hover{
+                color:$gC;
+            }
+            .soc:active{
+                color: aqua;
+            }
+        }
+
+        .nav__links{
+            list-style:none;
+            text-decoration: none;
+            margin:0 20px;
+            li{
+                display: none;
+                text-transform: uppercase;
+                a{
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    font-size: .7rem;
+                    color: white;
+                    padding:0 5px;
+                    transition: color .3s;
+                }
+                a:hover{
+                    color: $gC;
+                    text-shadow: 0px 0px 2px goldenrod;
+                }
+                a:active{
+                    color: aqua;
+                }
+                .ac{
+                    font-weight: bold;
+                    color:goldenrod;
+                    font-size: .8rem;
+                    
+
+                }
+                
+            }
+            .active{
+                text-shadow: 0 0 5px #4b3f12;
+                color:#f3c10a;
+                font-weight:bold;
+            }
+        }
+            
+            // BURGER MENU
+        .burger-menu{
+            position: fixed;;
             display:flex;
             justify-content: flex-end;
             align-items: center;
-            width:100vw;
-            height:100px;
-            padding: 30px 20px;
-            z-index: 1;
-            .logo{
-                width: 45px;
-                margin-right: auto;
-                cursor: pointer;
-            }
-            .social{
-                display:flex;
-                justify-content: space-evenly;
-                align-items: center;
-                margin-right: 63px;
-                display:none;
-                width:150px;
-                height:100%;
-                .soc{
-                    color: white;
-                    text-decoration: none;
-                    font-size: .7rem;
-                    transition: color .3s;
-                }
-                .soc:hover{
-                    color:$gC;
-                }
-            }
-            .nav__links{
-                list-style:none;
-                text-decoration: none;
-                margin:0 20px;
-                li{
-                    display: none;
-                    text-transform: uppercase;
-                    a{
-                        text-decoration: none;
-                        font-size: .7rem;
-                        color: white;
-                        padding:0 5px;
-                        transition: color .3s;
-                    }
-                    a:hover{
-                        color: $gC;
-                        text-shadow: 0px 0px 1px black;
-                    }
-                }
-            }
-            
-            
-            
-            
-            // BURGER MENU
-            .burger-menu{
+            $paddingBurger: 20px;
+            width: $wMenu + ( $paddingBurger * 2);
+            height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
+            cursor: pointer;
+            transition: display .3s;
+            .container{
                 position: absolute;
-                top: 9px;
-                right: 5px;
-                display:block;
-                $paddingBurger: 20px;
-                width: $wMenu + ( $paddingBurger * 2);
-                height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
-                cursor: pointer;
-                transition: display .3s;
-                .container{
+                top: $paddingBurger /2;
+                left:$paddingBurger;
+                width: $wMenu;
+                height: 23px;
+                overflow: visible;
+                .line{
                     position: absolute;
-                    top: $paddingBurger;
-                    left:$paddingBurger;
                     width: $wMenu;
-                    height: 23px;
-                    overflow: visible;
-                    .line{
+                    background-color: $gC;
+                    left: 0;
+                    display: block;
+                    height: $hLine;
+                }
+                #line0{
+                    top: ($hLine + $sepLine) * 1;
+                }
+                #line1{
+                    top: ($hLine + $sepLine) * 2;
+                    transition: top .3s ;
+                }                
+                #line2{
+                    top: ($hLine + $sepLine) * 3;
+                }
+                .txt-container{
+                    position: absolute;
+                    width: $wMenu;
+                    left: 0;
+                    top: 12px;
+                    height:0px;
+                    overflow: hidden;
+                    transition: top 1s;
+                    width: 100%;
+                    height: 20px;
+                    top:12px;
+                    span{
                         position: absolute;
-                        width: $wMenu;
-                        background-color: $gC;
+                        top: 30px;
                         left: 0;
-                        display: block;
-                        height: $hLine;
-                    }
-                    #line0{
-                        top: ($hLine + $sepLine) * 1;
-                    }
-                    
-                    #line1{
-                        top: ($hLine + $sepLine) * 2;
-                        transition: top .3s ;
-                    }
-                    
-                    #line2{
-                        top: ($hLine + $sepLine) * 3;
-                    }
-                    .txt-container{
-                        position: absolute;
-                        width: $wMenu;
-                        left: 0;
-                        top: 12px;
-                        height:0px;
-                        overflow: hidden;
-                        z-index: -1;
-                        transition: top 1s;
                         width: 100%;
-                        height: 20px;
-                        top:12px;
-                        span{
-                            position: absolute;
-                            top: 30px;
-                            left: 0;
-                            width: 100%;
-                            height: auto;
-                            font-family :sans-serif;
-                            text-align: center;
-                            font-size: 9px;
-                            color: $gC;
-                            transition: top .5s;
-                        }
-                    }
-                    .showMenu0{
-                        transform: rotate(45deg) translateX(9px) translateY(7px);
-                        translate: (-50%, -50%);
-                        transition: .3s;
-                    }
-                    .showMenu2{
-                        transform: rotate(-45deg) translateX(7px) translateY(-6px);
-                        translate: (-50%, -50%);
-                        transition: .3s;
+                        height: auto;
+                        font-family :sans-serif;
+                        text-align: center;
+                        font-size: 9px;
+                        color: $gC;
+                        transition: top .5s;
                     }
                 }
+                .showMenu0{
+                    transform: rotate(45deg) translateX(9px) translateY(7px);
+                    translate: (-50%, -50%);
+                    transition: .3s;
+                }
+                .showMenu2{
+                    transform: rotate(-45deg) translateX(7px) translateY(-6px);
+                    translate: (-50%, -50%);
+                    transition: .3s;
+                }
             }
+        }
+        .burger-menu:hover  #line1{
+            top: ($hLine + $sepLine) * 3;
+        }
+        .burger-menu:hover  .txt-container > span{
+            top: 4.5px;
+        }
             
-            .burger-menu:hover  #line1{
-                top: ($hLine + $sepLine) * 3;
-            }
-            .burger-menu:hover  .txt-container > span{
-                top: 4.5px;
-            }
-            
-            
-
-
-
     }
-
-    // HEADER 
-
-    header{
-        display: flex;
+    .bar{
+        background-color: rgba(0,0,0,.7);
+        height: 70px;
+    }
+    // .div2{
+    //     position: relative;
+    //     height: 100vh;
+    //     width: 100%;
+    //     background-image: url("https://cdn.pixabay.com/photo/2016/11/19/12/11/dark-1838959_960_720.jpg");
+    //     background-position: center;
+    //     background-size:cover;
+    //     background-attachment: fixed;
+    
+    .div3{
+        position: relative;
+        display:flex;
         justify-content: center;
         align-items: center;
-        color:fff;
+        color: white;
+        font-size: 8rem;
+        top:100vh;
         height: 100vh;
+        width: 100%;
+        background-image: url("../img/audio-1839380_1280.jpg");
+        background-position: center;
+        background-size:cover;
 
         
-
-        h1{
-            text-transform: uppercase;
-        }
-        .hero-img{
-            background-image: url("https://cdn.pixabay.com/photo/2016/11/19/12/11/dark-1838959_960_720.jpg");
-            background-position: center;
-            background-size: cover;
-            
-        }
-     }
-
-
-
-
+    }
+    #artist:target  nav .nav__links li a{
+        color: black;
+    }
+    
+    
+    
+    
     // MEDIA
-
-     @media (min-width: 600px){
+    @media (min-width: 600px){
         nav{
             .social{
                 display:flex;
             }
-            .logo{
+            a .logo{
                 width: 55px;
-
+                
             }
         }
     }
     @media (min-width: 1100px){
         nav{
-            .logo{
+            a .logo{
                 width: 60px;
             }
             .nav__links{
@@ -222,4 +280,6 @@ body{
             }
         }
     }
-}
+
+
+

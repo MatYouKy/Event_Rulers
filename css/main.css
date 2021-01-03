@@ -9,13 +9,46 @@ html {
 }
 
 body {
+  position: relative;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   background-color: #343434;
 }
 
-body nav {
-  position: sticky;
+header {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+}
+
+header h1 {
+  display: none;
+  text-transform: uppercase;
+}
+
+header p {
+  display: none;
+  text-transform: uppercase;
+}
+
+header .hero-img {
+  position: relative;
+  height: 100vh;
+  background-image: url("/img/img1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header .hero-shdow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+nav {
+  position: fixed;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -25,13 +58,16 @@ body nav {
   z-index: 1;
 }
 
-body nav .logo {
-  width: 45px;
+nav a {
   margin-right: auto;
   cursor: pointer;
 }
 
-body nav .social {
+nav a .logo {
+  width: 45px;
+}
+
+nav .social {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -41,62 +77,83 @@ body nav .social {
   height: 100%;
 }
 
-body nav .social .soc {
+nav .social .soc {
   color: white;
   text-decoration: none;
-  font-size: .7rem;
+  font-size: .8rem;
   transition: color .3s;
 }
 
-body nav .social .soc:hover {
+nav .social .soc:hover {
   color: #d2b859;
 }
 
-body nav .nav__links {
+nav .social .soc:active {
+  color: aqua;
+}
+
+nav .nav__links {
   list-style: none;
   text-decoration: none;
   margin: 0 20px;
 }
 
-body nav .nav__links li {
+nav .nav__links li {
   display: none;
   text-transform: uppercase;
 }
 
-body nav .nav__links li a {
+nav .nav__links li a {
   text-decoration: none;
+  letter-spacing: 2px;
   font-size: .7rem;
   color: white;
   padding: 0 5px;
   transition: color .3s;
 }
 
-body nav .nav__links li a:hover {
+nav .nav__links li a:hover {
   color: #d2b859;
-  text-shadow: 0px 0px 1px black;
+  text-shadow: 0px 0px 2px goldenrod;
 }
 
-body nav .burger-menu {
-  position: absolute;
-  top: 9px;
-  right: 5px;
-  display: block;
+nav .nav__links li a:active {
+  color: aqua;
+}
+
+nav .nav__links li .ac {
+  font-weight: bold;
+  color: goldenrod;
+  font-size: .8rem;
+}
+
+nav .nav__links .active {
+  text-shadow: 0 0 5px #4b3f12;
+  color: #f3c10a;
+  font-weight: bold;
+}
+
+nav .burger-menu {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   width: 70px;
   height: 65px;
   cursor: pointer;
   transition: display .3s;
 }
 
-body nav .burger-menu .container {
+nav .burger-menu .container {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 20px;
   width: 30px;
   height: 23px;
   overflow: visible;
 }
 
-body nav .burger-menu .container .line {
+nav .burger-menu .container .line {
   position: absolute;
   width: 30px;
   background-color: #d2b859;
@@ -105,34 +162,33 @@ body nav .burger-menu .container .line {
   height: 3px;
 }
 
-body nav .burger-menu .container #line0 {
+nav .burger-menu .container #line0 {
   top: 10px;
 }
 
-body nav .burger-menu .container #line1 {
+nav .burger-menu .container #line1 {
   top: 20px;
   transition: top .3s;
 }
 
-body nav .burger-menu .container #line2 {
+nav .burger-menu .container #line2 {
   top: 30px;
 }
 
-body nav .burger-menu .container .txt-container {
+nav .burger-menu .container .txt-container {
   position: absolute;
   width: 30px;
   left: 0;
   top: 12px;
   height: 0px;
   overflow: hidden;
-  z-index: -1;
   transition: top 1s;
   width: 100%;
   height: 20px;
   top: 12px;
 }
 
-body nav .burger-menu .container .txt-container span {
+nav .burger-menu .container .txt-container span {
   position: absolute;
   top: 30px;
   left: 0;
@@ -145,64 +201,70 @@ body nav .burger-menu .container .txt-container span {
   transition: top .5s;
 }
 
-body nav .burger-menu .container .showMenu0 {
+nav .burger-menu .container .showMenu0 {
   transform: rotate(45deg) translateX(9px) translateY(7px);
   translate: -50%, -50%;
   transition: .3s;
 }
 
-body nav .burger-menu .container .showMenu2 {
+nav .burger-menu .container .showMenu2 {
   transform: rotate(-45deg) translateX(7px) translateY(-6px);
   translate: -50%, -50%;
   transition: .3s;
 }
 
-body nav .burger-menu:hover #line1 {
+nav .burger-menu:hover #line1 {
   top: 30px;
 }
 
-body nav .burger-menu:hover .txt-container > span {
+nav .burger-menu:hover .txt-container > span {
   top: 4.5px;
 }
 
-body header {
+.bar {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 70px;
+}
+
+.div3 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: fff;
+  color: white;
+  font-size: 8rem;
+  top: 100vh;
   height: 100vh;
-}
-
-body header h1 {
-  text-transform: uppercase;
-}
-
-body header .hero-img {
-  background-image: url("https://cdn.pixabay.com/photo/2016/11/19/12/11/dark-1838959_960_720.jpg");
+  width: 100%;
+  background-image: url("../img/audio-1839380_1280.jpg");
   background-position: center;
   background-size: cover;
 }
 
+#artist:target nav .nav__links li a {
+  color: black;
+}
+
 @media (min-width: 600px) {
-  body nav .social {
+  nav .social {
     display: flex;
   }
-  body nav .logo {
+  nav a .logo {
     width: 55px;
   }
 }
 
 @media (min-width: 1100px) {
-  body nav .logo {
+  nav a .logo {
     width: 60px;
   }
-  body nav .nav__links li {
+  nav .nav__links li {
     display: inline-block;
   }
-  body nav .social {
+  nav .social {
     margin-right: 0;
   }
-  body nav .burger-menu {
+  nav .burger-menu {
     display: none;
   }
 }
