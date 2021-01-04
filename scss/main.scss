@@ -14,6 +14,15 @@ $numLines:3;
 html{
     scroll-behavior: smooth;
 }
+html::-webkit-scrollbar{
+    width: 10px;
+    background-color: #ddd;
+}
+html::-webkit-scrollbar-thumb{
+    width: 4px;
+    background-color: #444;
+    border-radius: 6px;
+}
 
 body{
     position: relative;
@@ -24,66 +33,87 @@ body{
 }    
 header{
     position: absolute;
-    background-color: #fff;
     width: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
     h1{
-        display: none;
-        text-transform: uppercase;
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 10px;
     }
-    p{
-        display:none;
-        text-transform: uppercase;
-    }
-        
+    
     .hero-img{
         position: relative;
         height: 100vh; 
-        background-image: url("/img/img1.jpg");
+        background-image: url("/img/desktop/home.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
+        z-index: 0;
         .hero-shadow{
-        
+            
             position: absolute;
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.6);
+            z-index: -10;
         }
     }
+    .hero-text{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width:80%;
+        
+        margin-left:-3000px;
+        height: 100%;
+        transition: margin-left 1s;
+
+    }
+
+
+
 
     
 }
 
     nav{
-        position: fixed;;
+        position: fixed;
         display:flex;
         justify-content: flex-end;
         align-items: center;
         width:100vw;
         height:100px;
         padding: 30px 20px;
-        z-index: 1;
-
+        z-index: 2;
 
     
         a{
+
             margin-right: auto;
             cursor: pointer;
+            z-index: 1;
             .logo{
                 width: 45px;
                 
             }
         }
         .social{
-            display:flex;
-            justify-content: space-evenly;
+            display: none;
             align-items: center;
-            margin-right: 63px;
-            display:none;
+            margin-top: auto;
+            margin-right: calc(50% - 75px);
             width:150px;
-            height:100%;
+            height:40px;
+            transition: margin-top .3s;   
+                     // background-color: #fff;
+            z-index: 5;
             .soc{
                 color: white;
+                padding: 12px;
                 text-decoration: none;
                 font-size: .8rem;
                 transition: color .3s;
@@ -95,15 +125,23 @@ header{
                 color: aqua;
             }
         }
+        .mobile-social{
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            margin-right: calc(50% - 75px);
+        }
 
         .nav__links{
+          
             list-style:none;
             text-decoration: none;
             margin:0 20px;
             li{
-                display: none;
                 text-transform: uppercase;
+                display: none;
                 a{
+                    text-align: center;
                     text-decoration: none;
                     letter-spacing: 2px;
                     font-size: .7rem;
@@ -125,22 +163,44 @@ header{
                     
 
                 }
+
                 
             }
-            .active{
+            .ac{
                 text-shadow: 0 0 5px #4b3f12;
                 color:#f3c10a;
                 font-weight:bold;
             }
         }
+        .nav-block{
+            position:absolute;
+            display:fixed;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5%;
+            width: 100vw;
+            height: 100%;
+            z-index: 0;
+
+
+        }
+        .li-block{
+            display:block;
+            
+            
+        }
+
             
             // BURGER MENU
         .burger-menu{
-            position: fixed;;
+            position: fixed;
             display:flex;
             justify-content: flex-end;
             align-items: center;
-            $paddingBurger: 20px;
+            z-index: 1;
+            top:auto;
+            $paddingBurger: 10px;
             width: $wMenu + ( $paddingBurger * 2);
             height: ($numLines * ( $hLine + $sepLine )) + ( $paddingBurger * 2) - 5px;
             cursor: pointer;
@@ -205,6 +265,7 @@ header{
                     transition: .3s;
                 }
             }
+
         }
         .burger-menu:hover  #line1{
             top: ($hLine + $sepLine) * 3;
@@ -212,20 +273,21 @@ header{
         .burger-menu:hover  .txt-container > span{
             top: 4.5px;
         }
+
             
     }
     .bar{
         background-color: rgba(0,0,0,.7);
         height: 70px;
     }
-    // .div2{
-    //     position: relative;
-    //     height: 100vh;
-    //     width: 100%;
-    //     background-image: url("https://cdn.pixabay.com/photo/2016/11/19/12/11/dark-1838959_960_720.jpg");
-    //     background-position: center;
-    //     background-size:cover;
-    //     background-attachment: fixed;
+    .open-menu{
+        align-items: flex-start;
+        background-color: rgb(0,0,0);
+        height: 100vh;
+        margin-top: 0;
+    }
+
+    // Section 
     
     .div3{
         position: relative;
@@ -233,7 +295,7 @@ header{
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 8rem;
+        font-size: 4rem;
         top:100vh;
         height: 100vh;
         width: 100%;
@@ -241,65 +303,90 @@ header{
         
         
     }
-    
     .about{
-        background-image: url("https://cdn.pixabay.com/photo/2017/08/01/22/32/people-2568353_960_720.jpg");
+        background-image: url("../img/mobile/about-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     .artist{
-        background-image: url("https://cdn.pixabay.com/photo/2017/01/09/06/01/dj-1964730_960_720.jpg");
+        background-image: url("../img/mobile/artist-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     .service{
-        background-image: url("https://cdn.pixabay.com/photo/2017/04/11/22/56/stage-2223130_960_720.jpg");
+        background-image: url("/img/mobile/service-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     .atraction{
-        background-image: url("https://cdn.pixabay.com/photo/2015/09/02/13/04/marriage-918864_960_720.jpg");
+        background-image: url("/img/mobile/atraction-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     .extras{
-        background-image: url("../img/audio-1839380_1280.jpg");
+        background-image: url("/img/mobile/extras-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     .contact{
-        background-image: url("../img/audio-1839380_1280.jpg");
+        background-image: url("../img/mobile/contact-mobile.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
         
     }
     
-    
-    
-    
     // MEDIA
     @media (min-width: 600px){
         nav{
             .social{
                 display:flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 0;
+                margin-right: 63px;
             }
             a .logo{
                 width: 55px;
                 
             }
         }
+        .about{
+            background-image: url("../img/desktop/about.jpg");
+        }
+        .artist{
+            background-image: url("../img/desktop/artist.jpg");
+        }
+        .service{
+            background-image: url("../img/desktop/service.jpg");
+        }
+        .atraction{
+            background-image: url("../img/desktop/atraction.jpg");
+        }
+        .extras{
+            background-image: url("../img/desktop/extras.jpg");
+        }
+        .contact{
+            background-image: url("../img/desktop/contact.jpg");
+        }
+
     }
+        
+
+
+        
+    
+
     @media (min-width: 1100px){
         nav{
             a .logo{
@@ -313,11 +400,33 @@ header{
             }
             .social{
                 margin-right: 0;
+            
             }
             .burger-menu{
                 display:none;
             }
         }
+    }
+    @media (orientation: portrait) and (max-width: 600px){
+        .about{
+            background-image: url("../img/portrait/about-p.jpg");
+        }
+        .artist{
+            background-image: url("../img/portrait/artist-p.jpg");
+        }
+        .service{
+            background-image: url("../img/portrait/service-p.jpg");
+        }
+        .atraction{
+            background-image: url("../img/portrait/attraction-p.jpg");
+        }
+        .extras{
+            background-image: url("../img/portrait/extras-p.jpg");
+        }
+        .contact{
+            background-image: url("../img/portrait/contact-p.jpg");
+        }
+
     }
 
 

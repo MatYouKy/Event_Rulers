@@ -8,6 +8,17 @@ html {
   scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ddd;
+}
+
+html::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #444;
+  border-radius: 6px;
+}
+
 body {
   position: relative;
   font-family: 'Montserrat', sans-serif;
@@ -17,27 +28,26 @@ body {
 
 header {
   position: absolute;
-  background-color: #fff;
   width: 100%;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
 }
 
 header h1 {
-  display: none;
-  text-transform: uppercase;
-}
-
-header p {
-  display: none;
-  text-transform: uppercase;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 header .hero-img {
   position: relative;
   height: 100vh;
-  background-image: url("/img/img1.jpg");
+  background-image: url("/img/desktop/home.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  z-index: 0;
 }
 
 header .hero-img .hero-shadow {
@@ -45,6 +55,18 @@ header .hero-img .hero-shadow {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: -10;
+}
+
+header .hero-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  margin-left: -3000px;
+  height: 100%;
+  transition: margin-left 1s;
 }
 
 nav {
@@ -55,12 +77,13 @@ nav {
   width: 100vw;
   height: 100px;
   padding: 30px 20px;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav a {
   margin-right: auto;
   cursor: pointer;
+  z-index: 1;
 }
 
 nav a .logo {
@@ -68,17 +91,19 @@ nav a .logo {
 }
 
 nav .social {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-right: 63px;
   display: none;
+  align-items: center;
+  margin-top: auto;
+  margin-right: calc(50% - 75px);
   width: 150px;
-  height: 100%;
+  height: 40px;
+  transition: margin-top .3s;
+  z-index: 5;
 }
 
 nav .social .soc {
   color: white;
+  padding: 12px;
   text-decoration: none;
   font-size: .8rem;
   transition: color .3s;
@@ -92,6 +117,13 @@ nav .social .soc:active {
   color: aqua;
 }
 
+nav .mobile-social {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-right: calc(50% - 75px);
+}
+
 nav .nav__links {
   list-style: none;
   text-decoration: none;
@@ -99,11 +131,12 @@ nav .nav__links {
 }
 
 nav .nav__links li {
-  display: none;
   text-transform: uppercase;
+  display: none;
 }
 
 nav .nav__links li a {
+  text-align: center;
   text-decoration: none;
   letter-spacing: 2px;
   font-size: .7rem;
@@ -127,10 +160,26 @@ nav .nav__links li .ac {
   font-size: .8rem;
 }
 
-nav .nav__links .active {
+nav .nav__links .ac {
   text-shadow: 0 0 5px #4b3f12;
   color: #f3c10a;
   font-weight: bold;
+}
+
+nav .nav-block {
+  position: absolute;
+  display: fixed;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+}
+
+nav .li-block {
+  display: block;
 }
 
 nav .burger-menu {
@@ -138,16 +187,18 @@ nav .burger-menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 70px;
-  height: 65px;
+  z-index: 1;
+  top: auto;
+  width: 50px;
+  height: 45px;
   cursor: pointer;
   transition: display .3s;
 }
 
 nav .burger-menu .container {
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 5px;
+  left: 10px;
   width: 30px;
   height: 23px;
   overflow: visible;
@@ -226,55 +277,62 @@ nav .burger-menu:hover .txt-container > span {
   height: 70px;
 }
 
+.open-menu {
+  align-items: flex-start;
+  background-color: black;
+  height: 100vh;
+  margin-top: 0;
+}
+
 .div3 {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 8rem;
+  font-size: 4rem;
   top: 100vh;
   height: 100vh;
   width: 100%;
 }
 
 .about {
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/01/22/32/people-2568353_960_720.jpg");
+  background-image: url("../img/mobile/about-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .artist {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/09/06/01/dj-1964730_960_720.jpg");
+  background-image: url("../img/mobile/artist-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .service {
-  background-image: url("https://cdn.pixabay.com/photo/2017/04/11/22/56/stage-2223130_960_720.jpg");
+  background-image: url("/img/mobile/service-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .atraction {
-  background-image: url("https://cdn.pixabay.com/photo/2015/09/02/13/04/marriage-918864_960_720.jpg");
+  background-image: url("/img/mobile/atraction-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .extras {
-  background-image: url("../img/audio-1839380_1280.jpg");
+  background-image: url("/img/mobile/extras-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .contact {
-  background-image: url("../img/audio-1839380_1280.jpg");
+  background-image: url("../img/mobile/contact-mobile.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -283,9 +341,31 @@ nav .burger-menu:hover .txt-container > span {
 @media (min-width: 600px) {
   nav .social {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+    margin-right: 63px;
   }
   nav a .logo {
     width: 55px;
+  }
+  .about {
+    background-image: url("../img/desktop/about.jpg");
+  }
+  .artist {
+    background-image: url("../img/desktop/artist.jpg");
+  }
+  .service {
+    background-image: url("../img/desktop/service.jpg");
+  }
+  .atraction {
+    background-image: url("../img/desktop/atraction.jpg");
+  }
+  .extras {
+    background-image: url("../img/desktop/extras.jpg");
+  }
+  .contact {
+    background-image: url("../img/desktop/contact.jpg");
   }
 }
 
@@ -301,6 +381,27 @@ nav .burger-menu:hover .txt-container > span {
   }
   nav .burger-menu {
     display: none;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+  .about {
+    background-image: url("../img/portrait/about-p.jpg");
+  }
+  .artist {
+    background-image: url("../img/portrait/artist-p.jpg");
+  }
+  .service {
+    background-image: url("../img/portrait/service-p.jpg");
+  }
+  .atraction {
+    background-image: url("../img/portrait/attraction-p.jpg");
+  }
+  .extras {
+    background-image: url("../img/portrait/extras-p.jpg");
+  }
+  .contact {
+    background-image: url("../img/portrait/contact-p.jpg");
   }
 }
 /*# sourceMappingURL=main.css.map */
