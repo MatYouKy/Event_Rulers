@@ -296,10 +296,12 @@ header{
     }
     .open-menu{
         align-items: flex-start;
-        overflow: scroll;
+        overflow: auto;
+
         background-color: rgb(0,0,0);
         height: 100vh;
         margin-top: 0;
+        margin-bottom: 20px;
     }
 
     // Section 

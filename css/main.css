@@ -293,10 +293,11 @@ nav .burger-menu:hover .txt-container > span {
 
 .open-menu {
   align-items: flex-start;
-  overflow: scroll;
+  overflow: auto;
   background-color: black;
   height: 100vh;
   margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .div3 {
