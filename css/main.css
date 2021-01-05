@@ -81,9 +81,8 @@ nav {
 }
 
 nav a {
+  justify-content: flex-end;
   margin-right: auto;
-  cursor: pointer;
-  z-index: 1;
 }
 
 nav a .logo {
@@ -132,6 +131,7 @@ nav .nav__links {
 
 nav .nav__links li {
   text-transform: uppercase;
+  position: relative;
   display: none;
 }
 
@@ -155,15 +155,29 @@ nav .nav__links li a:active {
 }
 
 nav .nav__links li .ac {
-  font-weight: bold;
-  color: goldenrod;
-  font-size: .8rem;
+  color: #ffc83e;
+  text-shadow: 1px 1px 3px #b98400;
 }
 
-nav .nav__links .ac {
-  text-shadow: 0 0 5px #4b3f12;
-  color: #f3c10a;
-  font-weight: bold;
+nav .nav__links li .ac::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 5%;
+  height: 2px;
+  width: 90%;
+  background-color: goldenrod;
+  box-shadow: 1px 1px 3px #b98400;
+  animation: up .8s;
+}
+
+@keyframes up {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 nav .nav-block {
@@ -279,6 +293,7 @@ nav .burger-menu:hover .txt-container > span {
 
 .open-menu {
   align-items: flex-start;
+  overflow: scroll;
   background-color: black;
   height: 100vh;
   margin-top: 0;

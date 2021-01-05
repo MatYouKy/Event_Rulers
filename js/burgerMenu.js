@@ -29,6 +29,7 @@ const main = ()=>{
 }
 const prepareDomElements = () => {
     list = [...document.querySelectorAll("nav ul li a")];
+    console.log(list)
     tableElements = document.querySelector("#cont");
     heroText = document.querySelector(".hero-text");
     nav = document.querySelector("nav");
@@ -117,8 +118,6 @@ const onPage = () => {
     let extrasfix = extras.offsetTop.toFixed(0) /100;
     let contactfix = contact.offsetTop.toFixed(0) /100;
 
-
-    console.log(windo)
     if(windo > bar){
         nav.classList.add('bar');
         nav.style.transition = ".3s";
