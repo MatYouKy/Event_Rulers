@@ -12,6 +12,10 @@ let contact;
 let nav;
 let list;
 let heroText;
+let span;
+let line0;
+let line1;
+let line2;
 
 
 
@@ -33,6 +37,10 @@ function prepareDomElements() {
     artist = document.querySelector("#artist");
     aboutus = document.querySelector("#about");
     home = document.querySelector("#home");
+    span = (tableElements.lastChild.previousSibling).firstElementChild;
+    line0 = tableElements.firstChild.nextElementSibling;
+    line1 = line0.nextElementSibling;
+    line2 = line1.nextElementSibling;
 }
 function prepareDomEvents() {
     tableElements.parentElement.addEventListener('click', showMenu);
@@ -54,24 +62,10 @@ const helloText = () => {
     }, 1000);
 }
 const showMenu = () =>{
-    const span = (tableElements.lastChild.previousSibling).firstElementChild
-    const line0 = tableElements.firstChild.nextElementSibling;
-    const line1 = line0.nextElementSibling;
-    const line2 = line1.nextElementSibling;
-    
     if(!menuOpen){
-        span.style.opacity = 0;
-        span.style.transition = ".3s"
         addElement();
-
-        
-        
-        // nav.children[2].style.transition = ".3s";
     }else{
-        span.style.opacity = 1;
-        span.style.transition = ".3s"
         clear();
-
     }
 }
 const addElement = () => {
@@ -82,6 +76,8 @@ const addElement = () => {
     nav.classList.add("open-menu")
     nav.children[2].classList.add("mobile-social");
     nav.children[1].classList.add('nav-block');
+    span.style.opacity = 0;
+    span.style.transition = ".3s"
 
     list.forEach(e=>{
         e.parentElement.style.display = "block";
@@ -102,6 +98,8 @@ const clear =() => {
     nav.classList.remove("open-menu")
     nav.children[2].classList.remove("mobile-social");
     nav.children[1].classList.remove('nav-block');
+    span.style.opacity = 1;
+    span.style.transition = ".3s"
     
     list.forEach(e=>{
         e.parentElement.style.display = "";
@@ -109,35 +107,23 @@ const clear =() => {
         e.parentElement.style.marginLeft = "";
     })
 }
-
-
-
-
 const onPage = () => {
     let windo = window.pageYOffset;
-
-
     if(windo > 10){
-
         nav.classList.add('bar');
         nav.style.transition = ".3s";
     }else{
         nav.classList.remove('bar');
-
     }
-
     if(aboutus.offsetTop <= windo && artist.offsetTop >windo){
-
         list[0].classList.add("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");
         list[3].classList.remove("ac");
         list[4].classList.remove("ac");
         list[5].classList.remove("ac");
-        
     }
     else if(artist.offsetTop <= windo && service.offsetTop >windo){
-
         list[0].classList.remove("ac")
         list[1].classList.add("ac");
         list[2].classList.remove("ac");
@@ -146,17 +132,14 @@ const onPage = () => {
         list[5].classList.remove("ac");
     }
     else if(service.offsetTop <= windo && atraction.offsetTop >windo){
-
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.add("ac");
         list[3].classList.remove("ac");
         list[4].classList.remove("ac");
         list[5].classList.remove("ac");
-        
     }
     else if(atraction.offsetTop <= windo && extras.offsetTop >windo){
-
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");
@@ -164,7 +147,7 @@ const onPage = () => {
         list[4].classList.remove("ac");
         list[5].classList.remove("ac");
     }
-    else if(extras.offsetTop <= windo && contact.offsetTop >windo){
+    else if(extras.offsetTop <= (windo + 10) && contact.offsetTop >windo){
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");
@@ -172,7 +155,8 @@ const onPage = () => {
         list[4].classList.add("ac");
         list[5].classList.remove("ac");
     }
-    else if((contact.offsetTop +0) < windo){
+    else if(contact.offsetTop < windo){
+        
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");
@@ -180,18 +164,15 @@ const onPage = () => {
         list[4].classList.remove("ac");
         list[5].classList.add("ac");
     }
-    else
-    {
+    else{
         list[0].classList.remove("ac")
         list[1].classList.remove("ac");
         list[2].classList.remove("ac");
         list[3].classList.remove("ac");
         list[4].classList.remove("ac");
         list[5].classList.remove("ac");
-
     }
 }
-
 const choosed = () =>{
     for(const el of list){
         el.addEventListener('click', function (){
@@ -201,7 +182,4 @@ const choosed = () =>{
     }
 
 }
-
-
-
 document.addEventListener("DOMContentLoaded", main)
