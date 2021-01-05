@@ -16,6 +16,9 @@ let span;
 let line0;
 let line1;
 let line2;
+let windowWidth = 1100;
+let bar = 10;
+let wellcomeText = 1000; // Delay miliseconds
 
 
 
@@ -24,10 +27,9 @@ const main = ()=>{
     prepareDomEvents();
     helloText();
 }
-function prepareDomElements() {
-    container = [...document.querySelectorAll(".container")];
+const prepareDomElements = () => {
     list = [...document.querySelectorAll("nav ul li a")];
-    tableElements = container[0];
+    tableElements = document.querySelector("#cont");
     heroText = document.querySelector(".hero-text");
     nav = document.querySelector("nav");
     contact = document.querySelector("#contact");
@@ -41,14 +43,15 @@ function prepareDomElements() {
     line0 = tableElements.firstChild.nextElementSibling;
     line1 = line0.nextElementSibling;
     line2 = line1.nextElementSibling;
+
 }
-function prepareDomEvents() {
+const prepareDomEvents = () => {
     tableElements.parentElement.addEventListener('click', showMenu);
     window.addEventListener("scroll", onPage);
     nav.children[0].addEventListener('click', clear)
-    choosed();
+    chosen();
     window.addEventListener('resize', function(){
-            if(window.innerWidth > 1100){
+            if(window.innerWidth > windowWidth){
             clear();
         }
     })
@@ -59,7 +62,7 @@ function prepareDomEvents() {
 const helloText = () => {
     setTimeout(() =>{
         heroText.style.marginLeft = "10%";
-    }, 1000);
+    }, wellcomeText);
 }
 const showMenu = () =>{
     if(!menuOpen){
@@ -69,16 +72,15 @@ const showMenu = () =>{
     }
 }
 const addElement = () => {
-    line1.style.opacity = 0;
     menuOpen = true;
     line0.classList.add("showMenu0");
+    line1.style.opacity = 0;
     line2.classList.add("showMenu2");
     nav.classList.add("open-menu")
     nav.children[2].classList.add("mobile-social");
     nav.children[1].classList.add('nav-block');
     span.style.opacity = 0;
     span.style.transition = ".3s"
-
     list.forEach(e=>{
         e.parentElement.style.display = "block";
         e.parentElement.style.marginTop = "50px";
@@ -86,14 +88,12 @@ const addElement = () => {
         
     })
 }
-
-
 const clear =() => {
     menuOpen = false;
     line0.style.transition = ".2s"
-    line2.style.transition = ".2s"
-    line1.style.opacity = 1;
     line0.classList.remove("showMenu0");
+    line1.style.opacity = 1;
+    line2.style.transition = ".2s"
     line2.classList.remove("showMenu2");
     nav.classList.remove("open-menu")
     nav.children[2].classList.remove("mobile-social");
@@ -108,72 +108,60 @@ const clear =() => {
     })
 }
 const onPage = () => {
-    let windo = window.pageYOffset;
-    if(windo > 10){
+
+    let windo = window.pageYOffset.toFixed(0) /100;
+    let aboutfix = aboutus.offsetTop.toFixed(0) /100;
+    let artistfix = artist.offsetTop.toFixed(0)/100;
+    let servicefix = service.offsetTop.toFixed(0)/100;
+    let atractionfix = atraction.offsetTop.toFixed(0) /100;
+    let extrasfix = extras.offsetTop.toFixed(0) /100;
+    let contactfix = contact.offsetTop.toFixed(0) /100;
+
+
+    console.log(windo)
+    if(windo > bar){
         nav.classList.add('bar');
         nav.style.transition = ".3s";
     }else{
         nav.classList.remove('bar');
     }
-    if(aboutus.offsetTop <= windo && artist.offsetTop >windo){
+    if(aboutfix <= windo && artistfix >windo){
+        removeAcClass(list)
         list[0].classList.add("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.remove("ac");
-        list[5].classList.remove("ac");
     }
-    else if(artist.offsetTop <= windo && service.offsetTop >windo){
-        list[0].classList.remove("ac")
+    else if(artistfix <= windo && servicefix >windo){
+        removeAcClass(list);
         list[1].classList.add("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.remove("ac");
-        list[5].classList.remove("ac");
-    }
-    else if(service.offsetTop <= windo && atraction.offsetTop >windo){
-        list[0].classList.remove("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.add("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.remove("ac");
-        list[5].classList.remove("ac");
-    }
-    else if(atraction.offsetTop <= windo && extras.offsetTop >windo){
-        list[0].classList.remove("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.add("ac");
-        list[4].classList.remove("ac");
-        list[5].classList.remove("ac");
-    }
-    else if(extras.offsetTop <= (windo + 10) && contact.offsetTop >windo){
-        list[0].classList.remove("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.add("ac");
-        list[5].classList.remove("ac");
-    }
-    else if(contact.offsetTop < windo){
         
-        list[0].classList.remove("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.remove("ac");
+    }
+    else if(servicefix <= windo && atractionfix >windo){
+        removeAcClass(list);
+        list[2].classList.add("ac");
+        
+    }
+    else if(atractionfix <= windo && extrasfix >windo){
+        removeAcClass(list);
+        list[3].classList.add("ac");
+    }
+    else if(extrasfix <= windo && contactfix >windo){
+        removeAcClass(list)
+        list[4].classList.add("ac");
+    }
+    else if(contactfix < windo + 1){
+        removeAcClass(list)
         list[5].classList.add("ac");
     }
     else{
-        list[0].classList.remove("ac")
-        list[1].classList.remove("ac");
-        list[2].classList.remove("ac");
-        list[3].classList.remove("ac");
-        list[4].classList.remove("ac");
-        list[5].classList.remove("ac");
+        removeAcClass(list)
     }
 }
-const choosed = () =>{
+const removeAcClass = (list) =>{
+    for(const el of list){
+        el.classList.remove("ac");
+    }
+}
+
+const chosen = () =>{
     for(const el of list){
         el.addEventListener('click', function (){
             clear();
