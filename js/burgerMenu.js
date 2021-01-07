@@ -17,8 +17,8 @@ let line0;
 let line1;
 let line2;
 let windowWidth = 1100;
-let bar = 10;
-let wellcomeText = 1000; // Delay miliseconds
+let bar = 1;
+let heroTime = 500; // Delay miliseconds
 
 
 
@@ -29,7 +29,6 @@ const main = ()=>{
 }
 const prepareDomElements = () => {
     list = [...document.querySelectorAll("nav ul li a")];
-    console.log(list)
     tableElements = document.querySelector("#cont");
     heroText = document.querySelector(".hero-text");
     nav = document.querySelector("nav");
@@ -44,6 +43,9 @@ const prepareDomElements = () => {
     line0 = tableElements.firstChild.nextElementSibling;
     line1 = line0.nextElementSibling;
     line2 = line1.nextElementSibling;
+    ul = nav.children[1]
+    liList = ul.querySelectorAll("li");
+    socialMobile = nav.children[2];
 
 }
 const prepareDomEvents = () => {
@@ -52,7 +54,7 @@ const prepareDomEvents = () => {
     nav.children[0].addEventListener('click', clear)
     chosen();
     window.addEventListener('resize', function(){
-            if(window.innerWidth > windowWidth){
+        if(window.innerWidth > windowWidth){
             clear();
         }
     })
@@ -62,9 +64,11 @@ const prepareDomEvents = () => {
 
 const helloText = () => {
     setTimeout(() =>{
-        heroText.style.marginLeft = "10%";
-    }, wellcomeText);
+        heroText.style.marginLeft = "0";
+
+    }, heroTime);
 }
+
 const showMenu = () =>{
     if(!menuOpen){
         addElement();
@@ -73,22 +77,29 @@ const showMenu = () =>{
     }
 }
 const addElement = () => {
+
     menuOpen = true;
     line0.classList.add("showMenu0");
     line1.style.opacity = 0;
     line2.classList.add("showMenu2");
     nav.classList.add("open-menu")
-    nav.children[2].classList.add("mobile-social");
-    nav.children[1].classList.add('nav-block');
+
+    socialMobile.classList.add("mobile-social");
+    ul.classList.add('nav-block');
     span.style.opacity = 0;
     span.style.transition = ".3s"
-    list.forEach(e=>{
-        e.parentElement.style.display = "block";
-        e.parentElement.style.marginTop = "50px";
-        e.parentElement.style.marginLeft = "75px";
-        
-    })
+    ul.classList.add("nav-block");
+    addDisplay(liList);
 }
+
+const addDisplay = li => {
+    for(let el of li){
+        el.classList.add("li-block") ;
+    }
+    
+    
+}
+
 const clear =() => {
     menuOpen = false;
     line0.style.transition = ".2s"
@@ -97,17 +108,23 @@ const clear =() => {
     line2.style.transition = ".2s"
     line2.classList.remove("showMenu2");
     nav.classList.remove("open-menu")
-    nav.children[2].classList.remove("mobile-social");
-    nav.children[1].classList.remove('nav-block');
+    socialMobile.classList.remove("mobile-social");
     span.style.opacity = 1;
     span.style.transition = ".3s"
+    ul.classList.remove("nav-block");
+    removeDisplay(liList);
     
-    list.forEach(e=>{
-        e.parentElement.style.display = "";
-        e.parentElement.style.marginTop = "";
-        e.parentElement.style.marginLeft = "";
-    })
+
 }
+
+const removeDisplay = li => {
+    for(let el of li){
+        el.classList.remove("li-block");
+    }
+    
+
+}
+
 const onPage = () => {
 
     let windo = window.pageYOffset.toFixed(0) /100;

@@ -10,6 +10,7 @@ $numLines:3;
     margin: 0;
     padding: 0;
 
+
 }
 html{
     scroll-behavior: smooth;
@@ -25,34 +26,27 @@ html::-webkit-scrollbar-thumb{
 }
 
 body{
-    position: relative;
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
+    font-size: 0;
     background-color:#343434;
 
 }    
-header{
-    position: absolute;
-    width: 100%;
-    text-transform: uppercase;
+#home{
+    height: 100vh;
     color: #fff;
-    letter-spacing: 1px;
-    h1{
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
-    
+    letter-spacing: 2px;
+    text-transform: uppercase;
     .hero-img{
         position: relative;
-        height: 100vh; 
+        width: 100%;
+        height:100%;
         background-image: url("/img/desktop/home.jpg");
         background-position: center;
         background-size:cover;
         background-attachment: fixed;
+        font-size: 10px;
         z-index: 0;
         .hero-shadow{
-            
             position: absolute;
             width: 100%;
             height: 100%;
@@ -61,56 +55,53 @@ header{
         }
     }
     .hero-text{
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width:80%;
-        
-        margin-left:-3000px;
+        position: absolute;
+        display: block;
+        text-align: center;
+        top: 50%;
+        margin-left: -3000px;
+        width: 100%;
         height: 100%;
         transition: margin-left 1s;
-
+        
+    }
+    
+    h1{
+        margin-bottom: 10px;
     }
 
-
-
-
-    
 }
+
 
     nav{
         position: fixed;
         display:flex;
         justify-content: flex-end;
         align-items: center;
-        width:100vw;
+        top:0;
+        left:0;
+        width: 100vw;
         height:100px;
         padding: 30px 20px;
-        z-index: 2;
+        z-index: 1;
 
-    
-        a{
-
-            justify-content: flex-end;
-            margin-right: auto;
-
+        #brand{
+            top:auto;
+            margin-right:auto;
+            padding: 5px;
             .logo{
-                width: 45px;
-                
+                width: 55px;
+
             }
         }
         .social{
-            display: none;
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
-            margin-top: auto;
-            margin-right: calc(50% - 75px);
-            width:150px;
+            margin-top: 10px;
+            width: 150px;
             height:40px;
-            transition: margin-top .3s;   
-                     // background-color: #fff;
-            z-index: 5;
+            transition: display .3s ;
             .soc{
                 color: white;
                 padding: 12px;
@@ -125,22 +116,35 @@ header{
                 color: aqua;
             }
         }
-        .mobile-social{
-            display: flex;
-            align-items: center;
-            margin-top: auto;
-            margin-right: calc(50% - 75px);
-        }
+        // .mobile-social{
+        //     position: absolute;
+        //     display: flex;
+        //     margin-right: calc(50% - 150px);
+        //     bottom:20px;
+
+        // }
+
+
+
+
 
         .nav__links{
-          
+            position: absolute;
             list-style:none;
             text-decoration: none;
-            margin:0 20px;
+            // background-color: #fff;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+
+
             li{
+                display: none;
                 text-transform: uppercase;
                 position:relative;
-                display: none;
+                margin: 20px 0;
+
+
                 a{
                     text-align: center;
                     text-decoration: none;
@@ -184,35 +188,31 @@ header{
                     transform: scaleX(1);
                 }
             }
-        }
-        }
-        .nav-block{
-            position:absolute;
-            display:fixed;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            margin-top: 5%;
-            width: 100vw;
-            height: 100%;
-            z-index: 0;
-
-
+            
+            
         }
         .li-block{
-            display:block;
+                display:block;
+            }
             
             
         }
+        .nav__links::-webkit-scrollbar{
+            display:none;
+        }
+        .nav-block{
+            width: 300px;
+            height:80%;
+            top:80px;
+            left: calc(50% - 150px)
+        }
+
+
 
             
             // BURGER MENU
         .burger-menu{
-            position: fixed;
-            display:flex;
-            justify-content: flex-end;
-            align-items: center;
-            z-index: 1;
+            position: relative;
             top:auto;
             $paddingBurger: 10px;
             width: $wMenu + ( $paddingBurger * 2);
@@ -290,19 +290,21 @@ header{
 
             
     }
+
     .bar{
         background-color: rgba(0,0,0,.7);
         height: 70px;
     }
     .open-menu{
+        justify-content: center;
         align-items: flex-start;
-        overflow: auto;
-
-        background-color: rgb(0,0,0);
         height: 100vh;
-        margin-top: 0;
-        margin-bottom: 20px;
+        background-color: #000;
+        z-index: 2;
+        transition: .3s;
+
     }
+
 
     // Section 
     
@@ -313,12 +315,8 @@ header{
         align-items: center;
         color: white;
         font-size: 4rem;
-        top:100vh;
         height: 100vh;
         width: 100%;
-
-        
-        
     }
     .about{
         background-image: url("../img/mobile/about-mobile.jpg");
@@ -363,16 +361,9 @@ header{
         
     }
     
-    // MEDIA
+    // //MEDIA
     @media (min-width: 600px){
         nav{
-            .social{
-                display:flex;
-                justify-content: flex-start;
-                align-items: center;
-                margin-top: 0;
-                margin-right: 63px;
-            }
             a .logo{
                 width: 55px;
                 
@@ -396,7 +387,6 @@ header{
         .contact{
             background-image: url("../img/desktop/contact.jpg");
         }
-
     }
         
 
@@ -410,41 +400,43 @@ header{
                 width: 60px;
             }
             .nav__links{
-                
+                position: relative;
+                margin-right: 0;
+                margin-top: 10px;
                 li{
-                    display: inline-block;
+                    display: inline-block
                 }
             }
-            .social{
-                margin-right: 0;
+            // .social{
+            //     margin-right: 0;
             
-            }
+            // }
             .burger-menu{
                 display:none;
             }
         }
     }
-    @media (orientation: portrait) and (max-width: 600px){
-        .about{
-            background-image: url("../img/portrait/about-p.jpg");
-        }
-        .artist{
-            background-image: url("../img/portrait/artist-p.jpg");
-        }
-        .service{
-            background-image: url("../img/portrait/service-p.jpg");
-        }
-        .atraction{
-            background-image: url("../img/portrait/attraction-p.jpg");
-        }
-        .extras{
-            background-image: url("../img/portrait/extras-p.jpg");
-        }
-        .contact{
-            background-image: url("../img/portrait/contact-p.jpg");
-        }
+    // @media (orientation: portrait) and (max-width: 600px){
+    //     .about{
+    //         background-image: url("../img/portrait/about-p.jpg");
+    //     }
+    //     .artist{
+    //         background-image: url("../img/portrait/artist-p.jpg");
+    //     }
+    //     .service{
+    //         background-image: url("../img/portrait/service-p.jpg");
+    //     }
+    //     .atraction{
+    //         background-image: url("../img/portrait/attraction-p.jpg");
+    //     }
+    //     .extras{
+    //         background-image: url("../img/portrait/extras-p.jpg");
+    //     }
+    //     .contact{
+    //         background-image: url("../img/portrait/contact-p.jpg");
+    //     }
 
-    }
+    // }
 
 
 
