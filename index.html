@@ -8,7 +8,11 @@
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="screen and (min-width: 576px)" href="css/small.css">
+    <link rel="stylesheet" media="screen and (min-width:768px)" href="css/medium.css">
+    <link rel="stylesheet" media="screen and (min-width: 992px)" href="css/large.css">
     
     <script src="https://kit.fontawesome.com/c90ed0e00c.js" crossorigin="anonymous"></script>
     
@@ -19,9 +23,10 @@
             <div class="hero-shadow"></div>
             <div class="hero-text">
                 <h1>Luksusowa oprawa uroczystości</h1>
-                <p>ponieważ kochamy to co robimy!</p>
-
+                <p>ponieważ kochamy to co robimy !</p>
+                <a class="about-btn" href="#about"><button>poznaj nas !</button></a>
             </div>
+            <a href="#about"><i class="fas fa-angle-down"></i></a>
         </div>
     </header>
     <nav>
@@ -51,17 +56,68 @@
     </nav>
 
 
+    <main>
+        <section id="about">
 
-    <section id="about" class="about div3">O nas</section>
-    <section id="artist" class="artist div3">Artyści</section>
-    <section id="service" class="service div3">Usługi</section>
-    <section id="atraction" class="atraction div3">Atrakcje</section>
-    <section id="extras" class="extras div3">Dodatki</section>
-    <section id="contact" class="contact div3">Kontakt</section>
+            <div class="about-top">
+                <div class="about-shadow"></div>
+                <h2>o nas</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-bottom">
+                <div class="wrapper ">
+                    <div class="row">
+                        <div class="square">
+                            <p><img src="img/Untitled-1.png" alt=""></p>
+                            <h3>wesela</h3>
+                            <p>najlepsze kawałki</p>
+                        </div>
 
+                        <div class="square">
+                            <p><img src="img/event.png" alt=""></p>
+                            <h3>eventy</h3>
+                            <p>świetne zabawy</p>
+                        </div>
+
+                        <div class="square">
+                            <p><i class="fas fa-birthday-cake"></i></p>
+                            <h3>okoliczności</h3>
+                            <p>pełen show</p>
+                        </div>
+
+                        <div class="square">
+                            <p><i class="fas fa-volume-up"></i></p>
+                            <h3>nagłosnienie</h3>
+                            <p>moc i jakość dźwięku</p>
+                        </div>
+
+                        <div class="square">
+                            <p><i class="fas fa-lightbulb"></i><p>
+                            <h3>oświetlenie</h3>
+                            <p>nastrojowy klimat</p>
+                        </div>
+
+                         <div class="square">
+                            <p><i class="fas fa-gift"></i></p>
+                            <h3>dodatki</h3>
+                            <p>moc atrakcji</p>
+                        </div>
+                    </div>
+            </div>
+
+            </div>
+        
+        </section>
+
+
+        <section id="artist" class="artist div3">Artyści</section>
+        <section id="service" class="service div3">Usługi</section>
+        <section id="atraction" class="atraction div3">Atrakcje</section>
+        <section id="extras" class="extras div3">Dodatki</section>
+        <section id="contact" class="contact div3">Kontakt</section>
+    </main>
     
-    
-    <script src="js/burgerMenu.js"></script>
+
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+#home .hero-img {
+  background-image: url("/img/medium/home.jpg");
+}
+
+nav a .logo {
+  width: 55px;
+}
+
+.wrapper {
+  width: 576px;
+}
+
+.about-bottom .row .square {
+  height: 220px;
+}
+
+.about-top {
+  background-image: url("../img/medium/about.jpg");
+  background-position: center;
+}
+
+.artist {
+  background-image: url("../img/medium/artist.jpg");
+}
+
+.service {
+  background-image: url("../img/medium/service.jpg");
+}
+
+.atraction {
+  background-image: url("../img/medium/atraction.jpg");
+}
+
+.extras {
+  background-image: url("../img/medium/extras.jpg");
+}
+
+.contact {
+  background-image: url("../img/medium/contact.jpg");
+}
+/*# sourceMappingURL=small.css.map */

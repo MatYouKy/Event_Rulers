@@ -1,0 +1,51 @@
+#home{
+    .hero-img{
+
+        .fa-angle-down{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color:white;
+            animation: bounce 1.6s infinite;
+
+        }
+    }
+
+}
+nav{
+    a .logo{
+        width: 60px;
+    }
+    .nav__links{
+        position: relative;
+        margin-right: 0;
+        margin-top: 10px;
+        li{
+            display: inline-block
+        }
+    }
+    .burger-menu{
+        display:none;
+    }
+}
+// 
+
+.wrapper{
+
+    width: 992px;
+
+
+}
+.about-bottom{
+    .row{
+
+
+        .square{
+
+            height: 250px;
+        }
+
+    }
+}

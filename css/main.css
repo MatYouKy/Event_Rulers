@@ -25,6 +25,10 @@ body {
   background-color: #343434;
 }
 
+header {
+  overflow: hidden;
+}
+
 #home {
   height: 100vh;
   color: #fff;
@@ -36,8 +40,8 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url("/img/desktop/home.jpg");
-  background-position: center;
+  background-image: url("/img/medium/home.jpg");
+  background-position: 30%;
   background-size: cover;
   background-attachment: fixed;
   font-size: 10px;
@@ -57,14 +61,55 @@ body {
   display: block;
   text-align: center;
   top: 50%;
-  margin-left: -3000px;
   width: 100%;
   height: 100%;
   transition: margin-left 1s;
 }
 
-#home h1 {
+#home .hero-text h1 {
   margin-bottom: 10px;
+  margin-left: 0px;
+  transition: .8s;
+  opacity: 0;
+  animation: bounceInUp 1.6s .3s;
+}
+
+#home .hero-text p {
+  margin-left: 0px;
+  transition: .8s;
+  opacity: 0;
+  animation: bounceInUp 1.6s .5s;
+}
+
+#home .hero-text .about-btn {
+  transition: color .3s;
+}
+
+#home .hero-text .about-btn button {
+  opacity: 0;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: white;
+  text-transform: uppercase;
+  margin-left: 0px;
+  margin-top: 20px;
+  font-size: 10px;
+  background: none;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: .8s;
+  animation: bounceInUp 1.6s .8s;
+  cursor: pointer;
+}
+
+#home .hero-text button:hover {
+  background-color: rgba(255, 255, 255, 0.639);
+  color: black;
+}
+
+#home .hero-text .about-btn:active button {
+  background-color: aqua;
 }
 
 nav {
@@ -292,97 +337,181 @@ nav .burger-menu:hover .txt-container > span {
   transition: .3s;
 }
 
-.div3 {
+.wrapper {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.underline {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 60px;
+  height: 4px;
+  background-color: #d2b859;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  animation: headShake 10s  infinite 1s;
+}
+
+.about-top {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 4rem;
-  height: 100vh;
-  width: 100%;
-}
-
-.about {
-  background-image: url("../img/mobile/about-mobile.jpg");
+  height: 40vh;
+  background-image: url("../img/small/about.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+.about-top h2 {
+  margin-top: 40px;
+  position: absolute;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #d2b859;
+}
+
+.about-top .about-shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: -10;
+}
+
+.about-bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(48, 48, 48, 0.909);
+  background: #f3f3f3;
+}
+
+.about-bottom .row {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.about-bottom .row .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: color .3s;
+  width: 250px;
+  height: 180px;
+  cursor: pointer;
+}
+
+.about-bottom .row .anime {
+  animation: bounceIn 1.6s;
+}
+
+.about-bottom .row .square:hover {
+  color: #d2b859;
+}
+
+.about-bottom .row .square:hover h3 {
+  color: rgba(48, 48, 48, 0.909);
+}
+
+.about-bottom .row .square:hover p:last-child {
+  color: #d2b859;
+}
+
+.about-bottom .row .square:active {
+  color: aqua;
+}
+
+.about-bottom .row .square:active h3 {
+  color: aqua;
+}
+
+.about-bottom .row .square:active p:last-child {
+  color: aqua;
+}
+
+.about-bottom .row img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.about-bottom .row .fas {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.about-bottom .row h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 7px;
+  color: #d2b859;
+  transition: color .3s;
+}
+
+.about-bottom .row p:last-child {
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: black;
+  transition: color .3s;
 }
 
 .artist {
-  background-image: url("../img/mobile/artist-mobile.jpg");
+  background-image: url("../img/small/artist.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .service {
-  background-image: url("/img/mobile/service-mobile.jpg");
+  background-image: url("../img/small/service.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .atraction {
-  background-image: url("/img/mobile/atraction-mobile.jpg");
+  background-image: url("../img/small/atraction.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .extras {
-  background-image: url("/img/mobile/extras-mobile.jpg");
+  background-image: url("../img/small/extras.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .contact {
-  background-image: url("../img/mobile/contact-mobile.jpg");
+  background-image: url("../img/small/contact.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-@media (min-width: 600px) {
-  nav a .logo {
-    width: 55px;
-  }
-  .about {
-    background-image: url("../img/desktop/about.jpg");
-  }
-  .artist {
-    background-image: url("../img/desktop/artist.jpg");
-  }
-  .service {
-    background-image: url("../img/desktop/service.jpg");
-  }
-  .atraction {
-    background-image: url("../img/desktop/atraction.jpg");
-  }
-  .extras {
-    background-image: url("../img/desktop/extras.jpg");
-  }
-  .contact {
-    background-image: url("../img/desktop/contact.jpg");
-  }
+.div3 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #d2b859;
+  height: 100vh;
+  width: 100%;
 }
 
-@media (min-width: 1100px) {
-  nav a .logo {
-    width: 60px;
-  }
-  nav .nav__links {
-    position: relative;
-    margin-right: 0;
-    margin-top: 10px;
-  }
-  nav .nav__links li {
-    display: inline-block;
-  }
-  nav .burger-menu {
-    display: none;
+@media (min-width: 375px) {
+  .about-bottom .row .square {
+    height: 200px;
   }
 }
 /*# sourceMappingURL=main.css.map */
