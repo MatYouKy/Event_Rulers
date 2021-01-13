@@ -1,14 +1,18 @@
 #home{
     .hero-img{
-        background-image: url("/img/medium/home.jpg");
+        background-image: url("/img/small/home1.jpg");
     }
 }
 
 
 nav{
-    a .logo{
-        width: 55px;
-        
+
+    #brand{
+
+        .logo{
+            width: 45px;
+
+        }
     }
 }
 .wrapper{
@@ -16,24 +20,36 @@ nav{
     width: 576px;
 
 }
-.about-bottom{
-    .row{
-
-        .square{
-
-            height: 220px;
+#about{
+    .top{
+        height: 40vh;
+    }
+    .about{
+        background-image: url("../img/medium/about.jpg");
+    }
+    .about-bottom{
+        .containers{
+            width: 500px;
         }
-
+        .row{
+    
+            .square{
+    
+                height: 220px;
+            }
+    
+        }
     }
 }
 
-.about-top{
-    background-image: url("../img/medium/about.jpg");
-    background-position: center;
-}
-.artist{
-    background-image: url("../img/medium/artist.jpg");
-}
+
+// .about{
+//     background-image: url("../img/medium/about.jpg");
+//     background-position: center;
+// }
+// .artist{
+//     background-image: url("../img/medium/artist.jpg");
+// }
 .service{
     background-image: url("../img/medium/service.jpg");
 }
@@ -45,4 +61,28 @@ nav{
 }
 .contact{
     background-image: url("../img/medium/contact.jpg");
+}
+
+#contact {
+
+    background-image: url("../img/medium/contact.jpg");
+
+    .top {
+        height: calc(20vh - 70px);
+        margin: 30px 0;
+    }
+
+    .cont-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+footer{
+    text-align: center;
+    p{
+        display:inline-block;
+        padding: 10px;
+
+    }
 }

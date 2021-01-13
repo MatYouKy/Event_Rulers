@@ -1,20 +1,37 @@
 #home{
     .hero-img{
-        background-image: url("/img/medium/home.jpg");
+        background-image: url("/img/small/home1.jpg");
 
     }
 
 }
-.wrapper{
+nav{
 
-    width: 768px;
+    #brand{
 
-
+        .logo{
+            margin-top:0;
+            width: 50px;
+        }
+    }
 }
+
+#about{
+    .about{
+        background-image: url("../img/large/about.jpg");
+    }
+    .about-bottom{
+        .containers{
+            width: 768px;
+        }
+    
+    }
+}
+
 // 
-.artist{
-    background-image: url("../img/large/artist.jpg");
-}
+// .artist{
+//     background-image: url("../img/large/artist.jpg");
+// }
 .service{
     background-image: url("../img/large/service.jpg");
 }
@@ -24,6 +41,13 @@
 .extras{
     background-image: url("../img/large/extras.jpg");
 }
-.contact{
+
+#contact{
     background-image: url("../img/large/contact.jpg");
+    .cont-contact {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 }
+

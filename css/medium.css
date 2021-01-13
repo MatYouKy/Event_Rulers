@@ -1,13 +1,18 @@
 #home .hero-img {
-  background-image: url("/img/medium/home.jpg");
+  background-image: url("/img/small/home1.jpg");
 }
 
-.wrapper {
+nav #brand .logo {
+  margin-top: 0;
+  width: 50px;
+}
+
+#about .about {
+  background-image: url("../img/large/about.jpg");
+}
+
+#about .about-bottom .containers {
   width: 768px;
-}
-
-.artist {
-  background-image: url("../img/large/artist.jpg");
 }
 
 .service {
@@ -22,7 +27,12 @@
   background-image: url("../img/large/extras.jpg");
 }
 
-.contact {
+#contact {
   background-image: url("../img/large/contact.jpg");
+}
+
+#contact .cont-contact {
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 /*# sourceMappingURL=medium.css.map */

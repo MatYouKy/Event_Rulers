@@ -1,26 +1,29 @@
 #home .hero-img {
-  background-image: url("/img/medium/home.jpg");
+  background-image: url("/img/small/home1.jpg");
 }
 
-nav a .logo {
-  width: 55px;
+nav #brand .logo {
+  width: 45px;
 }
 
 .wrapper {
   width: 576px;
 }
 
-.about-bottom .row .square {
-  height: 220px;
+#about .top {
+  height: 40vh;
 }
 
-.about-top {
+#about .about {
   background-image: url("../img/medium/about.jpg");
-  background-position: center;
 }
 
-.artist {
-  background-image: url("../img/medium/artist.jpg");
+#about .about-bottom .containers {
+  width: 500px;
+}
+
+#about .about-bottom .row .square {
+  height: 220px;
 }
 
 .service {
@@ -37,5 +40,28 @@ nav a .logo {
 
 .contact {
   background-image: url("../img/medium/contact.jpg");
+}
+
+#contact {
+  background-image: url("../img/medium/contact.jpg");
+}
+
+#contact .top {
+  height: calc(20vh - 70px);
+  margin: 30px 0;
+}
+
+#contact .cont-contact {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+footer {
+  text-align: center;
+}
+
+footer p {
+  display: inline-block;
+  padding: 10px;
 }
 /*# sourceMappingURL=small.css.map */

@@ -23,6 +23,7 @@ let windowWidth = 992;
 let bar = 1;
 let heroTime = 500; // Delay miliseconds
 let square;
+let timeAnime = 200;
 
 
 
@@ -161,33 +162,32 @@ const onPage = () => {
     if(aboutfix <= windo && artistfix >windo){
         removeAcClass(list)
         list[0].classList.add("ac")
-        animations(square[0], 100);
-        animations(square[1], 400);
-        animations(square[2], 600);
-        animations(square[3], 800);
-        animations(square[4], 1000);
-        animations(square[5], 1200);
+        for(let i = 0; i< 6; i++){
+            animations(square[i], i * timeAnime);
+
+        }
+        
 
     }
-    else if(artistfix <= windo && servicefix >windo){
+    else if(artistfix <= windo && servicefix >windo + 1){
         removeAcClass(list);
         list[1].classList.add("ac");
         
     }
-    else if(servicefix <= windo && atractionfix >windo){
+    else if(servicefix <= windo + 1 && atractionfix >windo + 1){
         removeAcClass(list);
         list[2].classList.add("ac");
         
     }
-    else if(atractionfix <= windo && extrasfix >windo){
+    else if(atractionfix <= windo + 1  && extrasfix >windo + 1 ){
         removeAcClass(list);
         list[3].classList.add("ac");
     }
-    else if(extrasfix <= windo && contactfix >windo){
+    else if(extrasfix <= windo +1 && contactfix > windo + 4){
         removeAcClass(list)
         list[4].classList.add("ac");
     }
-    else if(contactfix < windo + 1){
+    else if(contactfix < windo + 4){
         removeAcClass(list)
         list[5].classList.add("ac");
     }
@@ -209,5 +209,43 @@ const chosen = () =>{
         })
     }
 
+
 }
+
+    $('.carusel').slick({
+    //   setting-name: setting-value
+        autoplay: true,
+        autoplaySpeed: 3500,
+        mobileFirst: true,
+        slidesToShow:1,
+        slidesToScroll:1,
+        responsive: [
+            {
+                breakpoint:768,
+                settings:{
+                    slidesToShow:2,
+
+                }
+            },
+            {    
+                breakpoint:992,
+                settings:{
+                    slidesToShow:3,
+
+                }
+            },
+            {    
+                breakpoint:1600,
+                settings:{
+                    slidesToShow:4,
+
+                }
+            }
+
+
+        ]
+
+    });
+
+
 document.addEventListener("DOMContentLoaded", main)
