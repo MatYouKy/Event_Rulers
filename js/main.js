@@ -19,10 +19,11 @@ let line2;
 let h1;
 let p1;
 let btn1;
+let square;
+let black;
 let windowWidth = 992;
 let bar = 1;
 let heroTime = 500; // Delay miliseconds
-let square;
 let timeAnime = 200;
 
 
@@ -40,8 +41,8 @@ const prepareDomElements = () => {
     h1 = heroText.querySelector("h1");
     p1 = heroText.querySelector("p");
     btn1 = heroText.querySelector("button");
-
-    nav = document.querySelector("nav");
+    black = document.querySelector("#black");
+    nav = document.querySelector("#navigation");
     contact = document.querySelector("#contact");
     extras = document.querySelector("#extras");
     atraction = document.querySelector("#atraction");
@@ -100,13 +101,12 @@ const addElement = () => {
     line0.classList.add("showMenu0");
     line1.style.opacity = 0;
     line2.classList.add("showMenu2");
-    nav.classList.add("open-menu")
-
+    nav.children[1].classList.add("nav-block");
+    black.classList.add("black");
     socialMobile.classList.add("mobile-social");
-    ul.classList.add('nav-block');
     span.style.opacity = 0;
     span.style.transition = ".3s"
-    ul.classList.add("nav-block");
+
     addDisplay(liList);
 }
 
@@ -125,11 +125,11 @@ const clear =() => {
     line1.style.opacity = 1;
     line2.style.transition = ".2s"
     line2.classList.remove("showMenu2");
-    nav.classList.remove("open-menu")
+    nav.children[1].classList.remove("nav-block");
     socialMobile.classList.remove("mobile-social");
+    black.classList.remove("black");
     span.style.opacity = 1;
     span.style.transition = ".3s"
-    ul.classList.remove("nav-block");
     removeDisplay(liList);
     
 
@@ -143,58 +143,58 @@ const removeDisplay = li => {
 
 }
 
-const onPage = () => {
+// const onPage = () => {
 
-    let windo = window.pageYOffset.toFixed(0) /100;
-    let aboutfix = aboutus.offsetTop.toFixed(0) /100;
-    let artistfix = artist.offsetTop.toFixed(0)/100;
-    let servicefix = service.offsetTop.toFixed(0)/100;
-    let atractionfix = atraction.offsetTop.toFixed(0) /100;
-    let extrasfix = extras.offsetTop.toFixed(0) /100;
-    let contactfix = contact.offsetTop.toFixed(0) /100;
+//     let windo = window.pageYOffset;
+//     let aboutfix = aboutus.offsetTop;
+//     let artistfix = artist.offsetTo;
+//     let servicefix = service.offsetTo;
+//     let atractionfix = atraction.offsetTop;
+//     let extrasfix = extras.offsetTop;
+//     let contactfix = contact.offsetTop;
 
-    if(windo > bar){
-        nav.classList.add('bar');
-        nav.style.transition = ".3s";
-    }else{
-        nav.classList.remove('bar');
-    }
-    if(aboutfix <= windo && artistfix >windo){
-        removeAcClass(list)
-        list[0].classList.add("ac")
-        for(let i = 0; i< 6; i++){
-            animations(square[i], i * timeAnime);
+//     if(windo > bar){
+//         nav.classList.add('bar');
+//         nav.style.transition = ".3s";
+//     }else{
+//         nav.classList.remove('bar');
+//     }
+//     if(aboutfix <= windo && artistfix >windo){
+//         removeAcClass(list)
+//         list[0].classList.add("ac")
+//         for(let i = 0; i< 6; i++){
+//             animations(square[i], i * timeAnime);
 
-        }
+//         }
         
 
-    }
-    else if(artistfix <= windo && servicefix >windo + 1){
-        removeAcClass(list);
-        list[1].classList.add("ac");
+//     }
+//     else if(artistfix <= windo && servicefix >windo){
+//         removeAcClass(list);
+//         list[1].classList.add("ac");
         
-    }
-    else if(servicefix <= windo + 1 && atractionfix >windo + 1){
-        removeAcClass(list);
-        list[2].classList.add("ac");
+//     }
+//     else if(servicefix <= windo && atractionfix >windo ){
+//         removeAcClass(list);
+//         list[2].classList.add("ac");
         
-    }
-    else if(atractionfix <= windo + 1  && extrasfix >windo + 1 ){
-        removeAcClass(list);
-        list[3].classList.add("ac");
-    }
-    else if(extrasfix <= windo +1 && contactfix > windo + 4){
-        removeAcClass(list)
-        list[4].classList.add("ac");
-    }
-    else if(contactfix < windo + 4){
-        removeAcClass(list)
-        list[5].classList.add("ac");
-    }
-    else{
-        removeAcClass(list)
-    }
-}
+//     }
+//     else if(atractionfix <= windo  && extrasfix >windo ){
+//         removeAcClass(list);
+//         list[3].classList.add("ac");
+//     }
+//     else if(extrasfix <= windo && contactfix > windo){
+//         removeAcClass(list)
+//         list[4].classList.add("ac");
+//     }
+//     else if(contactfix < windo){
+//         removeAcClass(list)
+//         list[5].classList.add("ac");
+//     }
+//     else{
+//         removeAcClass(list)
+//     }
+// }
 const removeAcClass = (list) =>{
     for(const el of list){
         el.classList.remove("ac");

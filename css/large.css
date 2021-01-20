@@ -7,15 +7,15 @@
   font-size: 30px;
 }
 
-nav .navbar li {
-  display: inline-block;
+#navigation .navbar {
+  display: flex;
 }
 
-nav #brand .logo {
+#navigation #brand .logo {
   width: 55px;
 }
 
-nav .burger-menu {
+#navigation .burger-menu {
   display: none;
 }
 

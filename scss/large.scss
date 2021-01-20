@@ -16,13 +16,10 @@
 
     }
 }
-nav{
+#navigation{
     .navbar{        
-        li{
-            display: inline-block;
-        }
+        display:flex;
     }
-
     #brand{
     
         .logo{

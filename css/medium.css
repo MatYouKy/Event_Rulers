@@ -2,7 +2,7 @@
   background-image: url("/img/small/home1.jpg");
 }
 
-nav #brand .logo {
+#navigation #brand .logo {
   margin-top: 0;
   width: 50px;
 }
